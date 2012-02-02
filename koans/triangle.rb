@@ -14,7 +14,11 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  unique_sides_count = [a, b, c].uniq.count
+  sides = [a, b, c]
+  perimeter = (a + b + c)
+  raise TriangleError if sides.any?{|side| side <= 0 or side >= perimeter - side}
+
+  unique_sides_count = sides.uniq.count
   return :equilateral if unique_sides_count == 1
   return :isosceles if unique_sides_count == 2
   return :scalene if unique_sides_count == 3
