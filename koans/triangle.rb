@@ -15,8 +15,8 @@
 #
 def triangle(a, b, c)
   sides = [a, b, c]
-  perimeter = (a + b + c)
-  raise TriangleError if sides.any?{|side| side <= 0 or side >= perimeter - side}
+  half_perimeter = Float((a + b + c)) / 2
+  raise TriangleError if sides.any?{|side| side <= 0 or side >= half_perimeter}
 
   unique_sides_count = sides.uniq.count
   return :equilateral if unique_sides_count == 1
