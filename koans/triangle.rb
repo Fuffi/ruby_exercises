@@ -14,10 +14,10 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  unique_lengths = [a, b, c].uniq
-  return :equilateral if unique_lengths.length == 1
-  return :isosceles if unique_lengths.length == 2
-  return :scalene if unique_lengths.length == 3
+  unique_sides_count = [a, b, c].uniq.count
+  return :equilateral if unique_sides_count == 1
+  return :isosceles if unique_sides_count == 2
+  return :scalene if unique_sides_count == 3
 end
 
 # Error class used in part 2.  No need to change this code.
