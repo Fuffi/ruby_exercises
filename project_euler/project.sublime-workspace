@@ -22,14 +22,6 @@
 				"buffer_size": 385,
 				"line_ending": "Unix"
 			}
-		},
-		{
-			"file": "3.rb",
-			"settings":
-			{
-				"buffer_size": 176,
-				"line_ending": "Unix"
-			}
 		}
 	],
 	"build_system": "Packages/Ruby/Ruby.sublime-build",
@@ -56,6 +48,9 @@
 	},
 	"file_history":
 	[
+		"/home/fuffi/ruby_exercises/project_euler/5.rb",
+		"/home/fuffi/ruby_exercises/project_euler/6.rb",
+		"/home/fuffi/ruby_exercises/project_euler/3.rb",
 		"/home/fuffi/ruby_exercises/koans/about_class_methods.rb",
 		"/home/fuffi/ruby_exercises/koans/[31m  /home/fuffi/ruby_exercises/koans/about_class_methods.rb",
 		"/home/fuffi/.config/sublime-text-2/Packages/Default/Base File.sublime-settings",
@@ -94,7 +89,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -141,33 +136,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "3.rb",
-					"settings":
-					{
-						"buffer_size": 176,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								176,
-								176
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -211,7 +182,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 369.0
+		"height": 106.0
 	},
 	"replace":
 	{

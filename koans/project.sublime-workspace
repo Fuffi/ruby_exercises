@@ -8,18 +8,53 @@
 	"buffers":
 	[
 		{
-			"file": "about_modules.rb",
+			"file": "about_arrays.rb",
 			"settings":
 			{
-				"buffer_size": 1139,
+				"buffer_size": 2002,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/fuffi/ruby_exercises/project_euler/1.rb",
+			"file": "about_modules.rb",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1170,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "about_scope.rb",
+			"settings":
+			{
+				"buffer_size": 1908,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "about_message_passing.rb",
+			"settings":
+			{
+				"buffer_size": 4705,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "require File.expand_path(File.dirname(__FILE__) + '/edgecase')\n\n# Project: Create a Proxy Class\n#\n# In this assignment, create a proxy class (one is started for you\n# below).  You should be able to initialize the proxy object with any\n# object.  Any messages sent to the proxy object should be forwarded\n# to the target object.  As each message is sent, the proxy should\n# record the name of the method send.\n#\n# The proxy class is started for you.  You will need to add a method\n# missing handler and any other supporting methods.  The specification\n# of the Proxy class is given in the AboutProxyObjectProject koan.\n\nclass Proxy\n  attr_accessor :channel\n  def initialize(target_object)\n    @object = target_object\n    # ADD MORE CODE HERE\n  end\n\n  def power\n    @object.\n\n  # WRITE CODE HERE\nend\n\n# The proxy object should pass the following Koan:\n#\nclass AboutProxyObjectProject < EdgeCase::Koan\n  def test_proxy_method_returns_wrapped_object\n    # NOTE: The Television class is defined below\n    tv = Proxy.new(Television.new)\n    \n    assert tv.instance_of?(Proxy)\n  end\n  \n  def test_tv_methods_still_perform_their_function\n    tv = Proxy.new(Television.new)\n    \n    tv.channel = 10\n    tv.power\n    \n    assert_equal 10, tv.channel\n    assert tv.on?\n  end\n\n  def test_proxy_records_messages_sent_to_tv\n    tv = Proxy.new(Television.new)\n    \n    tv.power\n    tv.channel = 10\n    \n    assert_equal [:power, :channel=], tv.messages\n  end\n  \n  def test_proxy_handles_invalid_messages\n    tv = Proxy.new(Television.new)\n    \n    assert_raise(NoMethodError) do\n      tv.no_such_method\n    end\n  end\n  \n  def test_proxy_reports_methods_have_been_called\n    tv = Proxy.new(Television.new)\n    \n    tv.power\n    tv.power\n    \n    assert tv.called?(:power)\n    assert ! tv.called?(:channel)\n  end\n  \n  def test_proxy_counts_method_calls\n    tv = Proxy.new(Television.new)\n    \n    tv.power\n    tv.channel = 48\n    tv.power\n\n    assert_equal 2, tv.number_of_times_called(:power)\n    assert_equal 1, tv.number_of_times_called(:channel=)\n    assert_equal 0, tv.number_of_times_called(:on?)\n  end\n\n  def test_proxy_can_record_more_than_just_tv_objects\n    proxy = Proxy.new(\"Code Mash 2009\")\n\n    proxy.upcase!\n    result = proxy.split\n\n    assert_equal [\"CODE\", \"MASH\", \"2009\"], result\n    assert_equal [:upcase!, :split], proxy.messages\n  end\nend\n\n\n# ====================================================================\n# The following code is to support the testing of the Proxy class.  No\n# changes should be necessary to anything below this comment.\n\n# Example class using in the proxy testing above.\nclass Television\n  attr_accessor :channel\n  \n  def power\n    if @power == :on\n      @power = :off\n    else\n      @power = :on\n    end\n  end\n  \n  def on?\n    @power == :on\n  end\nend\n\n# Tests for the Television class.  All of theses tests should pass.\nclass TelevisionTest < EdgeCase::Koan\n  def test_it_turns_on\n    tv = Television.new\n    \n    tv.power\n    assert tv.on?\n  end\n  \n  def test_it_also_turns_off\n    tv = Television.new\n    \n    tv.power\n    tv.power\n    \n    assert ! tv.on?\n  end\n  \n  def test_edge_case_on_off\n    tv = Television.new\n    \n    tv.power\n    tv.power\n    tv.power\n        \n    assert tv.on?\n    \n    tv.power\n    \n    assert ! tv.on?\n  end\n\n  def test_can_set_the_channel\n    tv = Television.new\n\n    tv.channel = 11\n    assert_equal 11, tv.channel\n  end\nend\n",
+			"file": "about_proxy_object_project.rb",
+			"file_size": 3577,
+			"file_write_time": 1328276726000000,
+			"settings":
+			{
+				"buffer_size": 3390,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "about_classes.rb",
+			"settings":
+			{
+				"buffer_size": 4073,
 				"line_ending": "Unix"
 			}
 		}
@@ -48,6 +83,9 @@
 	},
 	"file_history":
 	[
+		"/home/fuffi/ruby_exercises/koans/about_asserts.rb",
+		"/home/fuffi/ruby_exercises/koans/about_modules.rb",
+		"/home/fuffi/ruby_exercises/project_euler/1.rb",
 		"/home/fuffi/ruby_exercises/koans/about_class_methods.rb",
 		"/home/fuffi/ruby_exercises/koans/[31m  /home/fuffi/ruby_exercises/koans/about_class_methods.rb",
 		"/home/fuffi/.config/sublime-text-2/Packages/Default/Base File.sublime-settings",
@@ -86,23 +124,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "about_modules.rb",
+					"file": "about_arrays.rb",
 					"settings":
 					{
-						"buffer_size": 1139,
+						"buffer_size": 2002,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								278,
-								275
+								0,
+								0
 							]
 						],
 						"settings":
@@ -119,10 +157,122 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/home/fuffi/ruby_exercises/project_euler/1.rb",
+					"file": "about_modules.rb",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1170,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								577,
+								577
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "about_scope.rb",
+					"settings":
+					{
+						"buffer_size": 1908,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1698,
+								1698
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 631.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "about_message_passing.rb",
+					"settings":
+					{
+						"buffer_size": 4705,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4655,
+								4655
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1968.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "about_proxy_object_project.rb",
+					"settings":
+					{
+						"buffer_size": 3390,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1078,
+								1078
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 96.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "about_classes.rb",
+					"settings":
+					{
+						"buffer_size": 4073,
 						"regions":
 						{
 						},
@@ -135,10 +285,12 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 288.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -179,7 +331,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 369.0
+		"height": 170.0
 	},
 	"replace":
 	{
