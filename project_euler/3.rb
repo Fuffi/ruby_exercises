@@ -1,15 +1,15 @@
-def prime?(number)
-  for potential_factor in (2...(number/2))
-  	return false if (number % potential_factor) == 0
-  end
-  
-  true
-end
-
 def find_largest_prime_factor_in(number)
-  for potential_factor in number.downto(2)
-    return potential_factor if (number % potential_factor) == 0 && prime?(potential_factor)
+  potential_prime_factor = 2
+  largest_prime_factor = 1
+  while potential_prime_factor * potential_prime_factor <= number
+    while number % potential_prime_factor == 0
+      print "Found prime factor:" + potential_prime_factor.to_s + "\n"
+      number = number / potential_prime_factor
+      largest_prime_factor = potential_prime_factor
+    end
+    potential_prime_factor += 1
   end
+  [number, largest_prime_factor].max
 end
 
 print find_largest_prime_factor_in(600851475143)
