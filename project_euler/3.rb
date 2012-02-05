@@ -1,9 +1,8 @@
 def find_largest_prime_factor_in(number)
   potential_prime_factor = 2
   largest_prime_factor = 1
-  while potential_prime_factor * potential_prime_factor <= number
+  while potential_prime_factor ** 2 <= number
     while number % potential_prime_factor == 0
-      print "Found prime factor:" + potential_prime_factor.to_s + "\n"
       number = number / potential_prime_factor
       largest_prime_factor = potential_prime_factor
     end
@@ -12,4 +11,4 @@ def find_largest_prime_factor_in(number)
   [number, largest_prime_factor].max
 end
 
-print find_largest_prime_factor_in(600851475143)
+print "Largest prime factor is " + find_largest_prime_factor_in(600851475143).to_s
