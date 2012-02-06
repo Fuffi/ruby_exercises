@@ -1,17 +1,15 @@
 def build_fibonacci_until(max_value)
-  fibonacci = []
-  fibonacci[0] = 1
-  fibonacci[1] = 2
-  new_index = 2
-  new_value = 3
+  new_value = 2
+  sum_of_evens = 2
+  previous_two = [1, 2]
   while new_value <= max_value
-  	new_value = fibonacci[new_index - 1] + fibonacci[new_index - 2]
-    fibonacci[new_index] = new_value
-    new_index += 1
+    new_value = previous_two[0] + previous_two[1]
+    previous_two = [previous_two[1], new_value]
+    sum_of_evens += new_value if (new_value % 2) == 0
   end
 
-  fibonacci
+  sum_of_evens
 end
 
-print build_fibonacci_until(4000000).select{|x| (x % 2) == 0}.inject(:+)
+print build_fibonacci_until(4000000)
 print "\n"
