@@ -10,8 +10,8 @@ end
 
 def solution_to_problem4
   palindromics = []
-  for x in (999.downto 1)
-    for y in (999.downto 1)
+  for x in (999.downto 900)
+    for y in (999.downto 900)
       multiplied = x * y
       palindromics << multiplied if palindromic?(multiplied)
     end
